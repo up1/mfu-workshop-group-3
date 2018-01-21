@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script language="Javascript">
+  var ajax = new XMLHttpRequest();
+  ajax.onload = findProduct;
+  ajax.open = ("POST","http://localhost:8080/api/ref",true); 
+  ajax.send(JSON.stringify({id : ref}));
+</script>
+
 <meta charset="UTF-8">
+</head>
 <body>
 
-
-<form action="*">
-<center>
+<div style="text-align:center">
+<form method="POST" action="">
    <h2> <p> 
 
-    Reference. °√Õ°√À—  ‘π§È“</p></h2>
+    Reference. ‡∏Å‡∏£‡∏≠‡∏Å‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</p></h2>
  <br>
   <input type="text" name="ref" value="">
   <br>
  <br>
   <input type="submit" value="OK">
 </form> 
-</center>
+</div>
 
 </body>
-</head>
 </html>

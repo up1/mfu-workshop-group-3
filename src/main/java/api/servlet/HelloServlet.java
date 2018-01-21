@@ -10,34 +10,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import entity.Product;
+import service.ProductService;
+
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
+    	
+    	ProductService productService = new ProductService();
+    	Product product = new Product("Product1",10.00f);
+    	productService.create(product);
+    	Product prduct98 = productService.findById(98);
         User user = new User();
-        user.setId("1111");
+        user.setId("1");
         user.setName("Up1");
 
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(response.getOutputStream(), user);
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        ObjectMapper mapper = new ObjectMapper();
-        User sendUser = mapper.readValue(req.getInputStream(), User.class);
-
-        User user = new User();
-        user.setId("0000");
-        user.setName("Response from POST form " + sendUser.getName());
-
-        mapper.writeValue(response.getOutputStream(), user);
+        mapper.writeValue(resp.getOutputStream(), prduct98);
 
     }
 

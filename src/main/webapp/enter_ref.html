@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script language="Javascript">
-  var ajax = new XMLHttpRequest();
-  ajax.onload = findProduct;
-  ajax.open = ("POST","http://localhost:8080/api/ref",true); 
-  ajax.send(JSON.stringify({id : ref}));
-</script>
 
-<meta charset="UTF-8">
+<head>
+  <script language="Javascript">
+    const search = () => {
+      const ref = document.getElementById('refcode').value;
+      window.location.href = "product.html?id=" + ref;
+    }
+
+
+
+  </script>
+
+  <meta charset="UTF-8">
 </head>
+
 <body>
 
-<div style="text-align:center">
-<form method="POST" action="">
-   <h2> <p> 
+  <div style="text-align:center">
+    <h2>
+      <p>
 
-    Reference. กรอกรหัสสินค้า</p></h2>
- <br>
-  <input type="text" name="ref" value="">
-  <br>
- <br>
-  <input type="submit" value="OK">
-</form> 
-</div>
+        Reference. กรอกรหัสสินค้า</p>
+    </h2>
+    <br>
+    <input type="text" id="refcode" value="">
+    <br>
+    <br>
+    <button onclick="search()">OK</button>
+  </div>
 
 </body>
+
 </html>

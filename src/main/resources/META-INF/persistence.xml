@@ -11,7 +11,7 @@
 			<!-- The JDBC driver of your database -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<!-- The JDBC URL to the database instance -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/db2" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db2" />
 			<!-- The database username -->
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<!-- The database password -->

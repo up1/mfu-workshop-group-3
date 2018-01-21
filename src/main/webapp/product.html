@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		function getUrlParameter(name) {
+			name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			var results = regex.exec(location.search);
+			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		};
+
+		window.onload = () => {
+			const ref = getUrlParameter("id");
+			fetch("http://localhost:8080/api/product?id=" + ref).then(async res => {
+				const product = await res.json();
+				const _name = product.name;
+				const _id = product.productId;
+				const _price = product.price;
+				document.getElementById("_name").innerText = _name;
+				document.getElementById("_id").innerText = _id;
+				document.getElementById("_price").innerText = _price;
+				console.log(product);
+			})
+			
+		}
+	</script>
 </head>
+
 <body>
 
 
@@ -17,24 +42,38 @@
 			<tr>
 
 				<td>ชื่อสินค้า:</td>
-				<td>--</td>
+				<td>
+					<span id="_name"></span>
+				</td>
 			</tr>
 			<tr>
 				<td>รหัสสินค้า:</td>
-				<td>**</td>
+				<td>
+					<span id="_id"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>ราคาสินค้า:</td>
+				<td>
+					<span id="_price"></span>
+				</td>
 			</tr>
 			<tr>
 				<td>จำนวน</td>
-				<td><input type="text"name="amount" value="">
+				<td>
+					<input type="text" name="amount" value="">
 			</tr>
 
 		</table>
 		<br>
-	<center><input type="submit" value="OK"></center> 
+		<center>
+			<input type="submit" value="OK">
+		</center>
 
 	</form>
 
 
 
 </body>
+
 </html>

@@ -23,8 +23,15 @@
 				document.getElementById("_id").innerText = _id;
 				document.getElementById("_price").innerText = _price;
 				console.log(product);
-			})
-			
+			});
+		}
+
+		const reviewOrder = () => {
+			const customerId = 1;
+			const productId = getUrlParameter("id");
+			const quantity = document.getElementById("quantity");
+			window.location.href = "purchase.html";
+
 		}
 	</script>
 </head>
@@ -37,40 +44,38 @@
 	</center>
 
 
-	<form action="#">
-		<table style="width:20%" align="center">
-			<tr>
+	<table style="width:20%" align="center">
+		<tr>
 
-				<td>ชื่อสินค้า:</td>
-				<td>
-					<span id="_name"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>รหัสสินค้า:</td>
-				<td>
-					<span id="_id"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>ราคาสินค้า:</td>
-				<td>
-					<span id="_price"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>จำนวน</td>
-				<td>
-					<input type="text" name="amount" value="">
-			</tr>
+			<td>ชื่อสินค้า:</td>
+			<td>
+				<span id="_name"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>รหัสสินค้า:</td>
+			<td>
+				<span id="_id"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>ราคาสินค้า:</td>
+			<td>
+				<span id="_price"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>จำนวน</td>
+			<td>
+				<input type="text" id="quantity" name="amount" value="">
+		</tr>
 
-		</table>
-		<br>
-		<center>
-			<input type="submit" value="OK">
-		</center>
+	</table>
+	<br>
+	<center>
+		<button onclick="reviewOrder()">OK</button>
+	</center>
 
-	</form>
 
 
 
